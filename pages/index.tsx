@@ -4,8 +4,11 @@
 
 import Head from "next/head";
 import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
+  const { data: session } = useSession();
+
   return (
     <div className="bg-black text-white min-h-screen flex flex-col">
       <Head>
@@ -27,11 +30,21 @@ export default function Home() {
           <a href="#tournaments" className="hover:text-red-500 transition">Турниры</a>
           <a href="#friends" className="hover:text-red-500 transition">Друзья</a>
         </nav>
-        <Link href="/profile">
-          <button className="bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition">
+        {!session ? (
+          <button
+            onClick={() => signIn("google")}
+            className="bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition"
+          >
             Войти / Регистрация
           </button>
-        </Link>
+        ) : (
+          <button
+            onClick={() => signOut()}
+            className="bg-gray-700 px-4 py-2 rounded hover:bg-gray-600 transition"
+          >
+            Выйти ({session.user?.name})
+          </button>
+        )}
       </header>
 
       {/* Hero */}
@@ -44,11 +57,30 @@ export default function Home() {
           Турниры, рейтинги и соревновательный режим с баном карт и агентов.
         </p>
 
-        <Link href="/profile">
-          <button className="mt-10 bg-red-600 px-10 py-4 rounded-lg text-lg font-bold hover:bg-red-700 transition transform hover:scale-105 shadow-lg">
-            Играть сейчас
-          </button>
-        </Link>
+        <div className="flex flex-col md:flex-row gap-4 mt-10">
+          <Link href="/profile">
+            <button className="bg-red-600 px-10 py-4 rounded-lg text-lg font-bold hover:bg-red-700 transition transform hover:scale-105 shadow-lg">
+              Играть сейчас
+            </button>
+          </Link>
+
+          {!session ? (
+            <button
+              onClick={() => signIn("google")}
+              className="bg-white text-black px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-200 transition transform hover:scale-105 shadow-lg flex items-center gap-2"
+            >
+              <img src="/google-icon.svg" alt="Google" className="w-6 h-6" />
+              Войти через Google
+            </button>
+          ) : (
+            <button
+              onClick={() => signOut()}
+              className="bg-gray-700 px-10 py-4 rounded-lg text-lg font-bold hover:bg-gray-600 transition transform hover:scale-105 shadow-lg"
+            >
+              Выйти
+            </button>
+          )}
+        </div>
       </section>
 
       {/* Modes */}
