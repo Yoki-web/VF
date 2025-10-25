@@ -1,0 +1,665 @@
+.profilePage {
+  background: #0a0a0a;
+  color: #fff;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Верхняя часть ===== */
+.heroSection {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.heroBackground {
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url("/images/profile/bc fon.jpg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.profileCard {
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid #ef4444;
+  border-radius: 12px;
+  padding: 40px 50px;
+  text-align: center;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.avatarHex {
+  width: 120px;
+  height: 120px;
+  background: #ef4444;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 
+                     75% 100%, 25% 100%, 0% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.username {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 8px 0 4px 0;
+}
+
+.riotId {
+  font-size: 15px;
+  color: #aaa;
+}
+
+/* ===== Хотбар ===== */
+.hotbar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: rgba(0,0,0,0.9);
+  padding: 18px 0;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  width: 100%;
+  box-shadow: inset 0 -1px 0 #111;
+}
+
+.hotbar a {
+  position: relative;
+  color: #bbb;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.hotbar a:hover {
+  color: #fff;
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hotbar a.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.hotbar a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(239,68,68,0.7);
+}
+
+.hotbar a::after {
+  transition: all 0.3s ease;
+}
+
+/* ===== Основная часть ===== */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  align-items: start;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.agentWrapper {
+  width: 100%;
+  height: 320px;      /* уменьшенная высота */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.agentFull {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.agentFooter {
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  background: #1a1a1a;
+  border-top: 1px solid #222;
+}
+
+.agentFooter h3 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.agentName {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ef4444;
+  letter-spacing: 1px;
+}
+.ranksBlock {
+  padding: 20px;
+  text-align: center;
+}
+
+.ranksBlock h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.ranksPlaceholder {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 40px 0;
+  color: #777;
+  font-size: 14px;
+}
+/* ===== Основная часть ===== */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* левая шире, правая уже */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  align-items: start;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+}
+/* ===== Rank Block ===== */
+.rankBlock {
+  width: 200px;          /* квадратный блок */
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 0 auto;
+}
+
+.rankImageWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rankImage {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.rankText {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.rankLevel {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.rankSystem {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ef4444;
+  margin: 2px 0 0 0;
+}
+/* ===== Achievements ===== */
+.achievements {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.achievementsTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.achievementsContent {
+  width: 100%;
+  height: 120px; /* временная высота-заглушка */
+  background: #1a1a1a;
+  border: 1px dashed #333;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 14px;
+}
+/* ===== Friends ===== */
+.friendsBlock {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.friendsTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.friendsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #1a1a1a;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.friendAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.friendName {
+  flex: 1;
+  color: #ddd;
+}
+
+.online {
+  border: 1px solid #22c55e;
+}
+
+.offline {
+  border: 1px solid #555;
+  color: #777;
+  opacity: 0.7;
+}
+/* ===== Highlights ===== */
+.highlights {
+  padding: 20px;
+}
+
+.highlightsTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.highlightCard {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mapPreview {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.mapPreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mapName {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.highlightFooter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.agentIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.agentIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.highlightInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.agentName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.matchDate {
+  font-size: 12px;
+  color: #aaa;
+}
+/* ===== Chat ===== */
+.chatBlock {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  height: 300px; /* можно регулировать */
+}
+
+.chatTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.chatMessages {
+  flex: 1;
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 12px;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+
+.chatPlaceholder {
+  color: #777;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.chatInputWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #0f0f0f;
+  color: #fff;
+  font-size: 14px;
+}
+
+.chatInput:focus {
+  outline: none;
+  border-color: #ef4444;
+}
+
+.chatSend {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chatSend:hover {
+  opacity: 0.9;
+}
+.mainLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr; /* левая, центр, правая */
+  gap: 20px;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+  align-items: start;
+}
+
+/* Левая колонка */
+.leftColumn {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 20px;
+}
+
+/* Центральная колонка */
+.centerColumn {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+}
+
+/* Правая колонка (чат на всю высоту) */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.rightColumn > * {
+  flex: 1; /* чат растягивается */
+}
+
+
+.profilePage {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+
+  /* фон: графитово-чёрный с плавным переходом */
+  background: linear-gradient(
+    180deg,
+    #0a0a0a,
+    #151515,
+    #1f1f1f,
+    #2c2c2c
+  );
+  background-size: 200% 200%;
+  animation: graphiteFlow 60s ease infinite;
+}
+
+@keyframes graphiteFlow {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* слой с трибунами */
+.profilePage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/tribunes.png") center/cover no-repeat;
+  opacity: 0.2;        /* мягко, но заметно */
+  filter: blur(5px);   /* лёгкое размытие */
+  z-index: 0;
+}
+
+/* слой с конфетти */
+.profilePage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/gold-sparkles.png") repeat;
+  background-size: 600px 600px;
+  opacity: 0.15; /* не слишком ярко */
+  animation: confettiMove 90s linear infinite;
+  z-index: 1;
+}
+
+@keyframes confettiMove {
+  from { background-position: 0 0; }
+  to   { background-position: 600px 800px; }
+}
+
+/* контент поверх */
+.profilePage > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+.profilePage {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: pageEnter 1.2s ease forwards;
+}
+
+@keyframes pageEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.agentImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* вписываем картинку */
+  max-height: 300px;   /* ограничиваем рост */
+}
+
+
+
+.agentImage {
+  max-height: 220px;  /* ограничиваем рост картинки */
+  width: auto;
+  object-fit: contain;
+}
+
+.mainLayout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr 1fr; /* агент уже, центр шире */
+  gap: 20px;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+  align-items: start;
+}
+
+/* Левая колонка */
+.leftColumn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Центральная колонка */
+.centerColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Правая колонка */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

@@ -1,0 +1,158 @@
+.friendsBlock {
+  padding: 16px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #141414, #0a0a0a);
+  border: 1px solid rgba(163,126,44,0.3);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.friendsTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(163,126,44,0.3);
+  padding-bottom: 6px;
+}
+
+.friendsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.friend:hover {
+  background: rgba(163,126,44,0.15);
+  transform: translateX(4px);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 10px;
+  position: relative; /* нужно для позиционирования индикатора статуса */
+  overflow: hidden;   /* если будет аватар-картинка, она не вылезет за круг */
+  font-size: 0.9rem;  /* буква/иконка внутри */
+}
+.online .avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background: #4caf50; /* зелёный для онлайн */
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(76,175,80,0.8);
+  animation: pulse 2s infinite;
+}
+
+.offline .avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background: #777; /* серый для оффлайн */
+  border-radius: 50%;
+}
+.friend {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.friend:hover {
+  background: rgba(163,126,44,0.15);
+  transform: translateX(4px);
+}
+
+/* аватар + кружок статуса */
+.avatarWrapper {
+  position: relative;
+  margin-right: 10px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+/* кружок статуса вынесен за аватар */
+.statusDot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #0a0a0a; /* обводка, чтобы не сливался */
+}
+
+/* цвета статусов */
+.online .statusDot {
+  background: #4caf50;
+  box-shadow: 0 0 6px rgba(76,175,80,0.8);
+  animation: pulse 2s infinite;
+}
+
+.offline .statusDot {
+  background: #777;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+/* инфо-блок */
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.status {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 2px; /* отделяем от ника */
+}

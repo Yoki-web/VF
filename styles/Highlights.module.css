@@ -1,0 +1,148 @@
+.highlightsBlock {
+  padding: 20px;
+  border-radius: 12px;
+  background: radial-gradient(circle at center, rgba(163,126,44,0.1), #0a0a0a 80%);
+  border: 1px solid rgba(163,126,44,0.4);
+}
+
+.highlightsTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+  text-align: center;
+  border-bottom: 1px solid rgba(163,126,44,0.3);
+  padding-bottom: 6px;
+}
+
+.highlightsList {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.highlightCard,
+.emptyCard {
+  position: relative;
+  min-width: 220px;
+  height: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+}
+
+.highlightCard {
+  border: 1px solid rgba(163,126,44,0.6); /* золотая рамка */
+}
+
+.highlightCard:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 20px rgba(163,126,44,0.5);
+}
+
+.mapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.highlightCard:hover .mapImage {
+  transform: scale(1.08);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.8));
+}
+
+.mapRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mapName {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.agentAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #ffd700;
+}
+
+.agent {
+  font-size: 0.85rem;
+  color: #ffd700;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* Play иконка */
+.playIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 0 8px rgba(0,0,0,0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.highlightCard:hover .playIcon {
+  opacity: 1;
+  color: #ffd700;
+}
+
+/* пустые слоты */
+.emptyCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border: 2px dashed rgba(163,126,44,0.4);
+  color: #aaa;
+  animation: slotPulse 3s infinite;
+}
+
+@keyframes slotPulse {
+  0%, 100% { border-color: rgba(163,126,44,0.4); }
+  50% { border-color: rgba(163,126,44,0.8); }
+}
+
+.addIcon {
+  font-size: 2rem;
+  color: #a37e2c;
+  animation: pulseAdd 2s infinite;
+}
+
+@keyframes pulseAdd {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+
+.addText {
+  font-size: 0.85rem;
+  margin-top: 4px;
+  color: #bbb;
+}

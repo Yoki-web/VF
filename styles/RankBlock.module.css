@@ -1,0 +1,132 @@
+.rankBlock {
+  position: relative;
+  padding: 24px 20px;
+  border-radius: 16px;
+  background: radial-gradient(circle at center, rgba(163,126,44,0.15), #0a0a0a 80%);
+  border: 1px solid rgba(163,126,44,0.4);
+  text-align: center;
+  transition: box-shadow 0.4s ease, transform 0.4s ease, background 0.4s ease;
+  overflow: hidden;
+}
+
+.rankBlock:hover {
+  box-shadow: 0 0 30px rgba(163,126,44,0.7);
+  background: radial-gradient(circle at center, rgba(163,126,44,0.25), #141414 80%);
+  transform: translateY(-4px);
+}
+
+/* обёртка бейджа */
+.rankIconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* бейдж */
+.badge {
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  animation: pulse 6s ease-in-out infinite;
+  transition: transform 0.35s ease;
+}
+
+/* шестиугольник */
+.hexBadge {
+  background: linear-gradient(180deg, rgba(35,35,35,1), rgba(20,20,20,1));
+  clip-path: polygon(25% 5%, 75% 5%, 95% 50%, 75% 95%, 25% 95%, 5% 50%);
+  border: 2px solid rgba(163,126,44,0.7);
+  box-shadow: inset 0 0 12px rgba(255,215,0,0.15), 0 0 20px rgba(163,126,44,0.35);
+}
+
+/* ореол */
+.badge::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
+  animation: glowRotate 12s linear infinite;
+  z-index: -1;
+}
+
+/* вращающийся блик */
+.badgeHighlight {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.15) 20%, transparent 80%);
+  clip-path: inherit;
+  animation: rotateHighlight 10s linear infinite;
+  border-radius: inherit;
+}
+
+@keyframes rotateHighlight {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.badgeNumber {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255,215,0,0.4);
+  transition: text-shadow 0.4s ease;
+}
+
+.rankBlock:hover .badgeNumber {
+  text-shadow: 0 0 15px rgba(255,215,0,0.9);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+/* текст */
+.rankInfo {
+  position: relative;
+  z-index: 1;
+}
+
+.rankTitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 0 10px;
+}
+
+/* прогресс-бар */
+.rankProgress {
+  margin: 0 auto 8px;
+  width: 80%;
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.rankProgressFill {
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, #a37e2c, #ffd700);
+  transition: width 0.6s ease;
+}
+
+.rankBlock:hover .rankProgressFill {
+  animation: progressShine 2s linear infinite;
+}
+
+@keyframes progressShine {
+  0% { background-position: -40px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.rankDetails {
+  font-size: 0.85rem;
+  color: #aaa;
+}
